@@ -1,0 +1,8 @@
+
+<app-header-email></app-header-email>
+<input type="button" routerLink="/admin" value="gestion mascotas admin" *ngIf="(tipo == 'administrador')">
+<input type="button" routerLink="/turnos" value="ver turnos" *ngIf="(tipo == 'administrador')">
+  <input type="button" routerLink="/cliente" value="gestion mascota cliente" *ngIf="(tipo == 'cliente')">
+  <input type="button" routerLink="/altaTurno" value="pedir turno" *ngIf="(tipo == 'cliente')">
+  <input type="button" routerLink="/chat" value="chat">
+  <input type="button" value="validar tipo de usuario" (click)="prueba()" *ngIf="!tipo">

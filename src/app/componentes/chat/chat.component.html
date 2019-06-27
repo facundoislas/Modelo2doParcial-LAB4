@@ -1,0 +1,26 @@
+<app-header-email></app-header-email>
+
+<div style="text-align: center;">
+  <h1>Chat de amigos</h1>
+  
+  <input type="text" style="
+  width: 50%;
+  height: 70px;
+  " [(ngModel)]="mensaje">
+  <input type="button" value="Enviar" (click)="enviar()">
+  <div>
+    <h2>Mensajes</h2>
+    <table>
+      <thead>
+        <th>Mensaje</th>
+        <th>Usuarios</th>
+        <th>Hora</th>
+      </thead>
+    <tr *ngFor="let mj of lista">
+      <td>{{mj.mensaje}}</td>
+      <td>{{mj.user}}</td>
+      <td>{{mj.hora  | date:'medium'}}</td>
+    </tr>
+  </table>
+  </div>
+  </div>

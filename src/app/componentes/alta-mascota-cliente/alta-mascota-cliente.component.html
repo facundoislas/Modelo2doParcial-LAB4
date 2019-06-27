@@ -1,0 +1,58 @@
+<app-header-email></app-header-email>
+
+<h1>Alta de mascota - Cliente</h1>
+
+<form [formGroup]="registroForm">
+  Seleccione animal: 
+  <select [(ngModel)] = "unAnimal.tipo" id="tipo" formControlName="tipo">
+    <option value="perro">Perro</option>
+    <option value="gato"> Gato</option>
+    <option value="huron">Huron</option>
+  </select>
+  <br>
+  Ingrese raza del animal: 
+  <input type="text" formControlName="raza" id="raza"[(ngModel)]="unAnimal.raza" >
+  <br>
+  Ingrese nombre del animal: 
+  <input type="text" formControlName="nombre" id="nombre"[(ngModel)]="unAnimal.nombre" >
+  <br>
+  Ingrese edad del animal: 
+  <input type="number"   formControlName="edad" id="edad" [(ngModel)]="unAnimal.edad" >
+  <br>
+  Subir una foto
+  <input type="file"  id="foto" (change)="onUpload($event)" formControlName="foto">
+  <input type="hidden"  id="id" [(ngModel)]="unAnimal.id" formControlName="id">
+  <br><br>
+  <input type="button" value="Enviar" (click)="subir()" [disabled]="!registroForm.valid" *ngIf="!modifica">
+  <input type="button" value="Modificar" (click)="modificar()" *ngIf="modifica">
+
+</form>
+
+
+<br><br><br>
+
+  <table border="solid">
+    <thead>
+      <th>Tipo</th>
+      <th>Raza</th>
+      <th>Nombre</th>
+      <th>edad</th>
+      
+      <!--<th>foto</th>-->
+      <th>boton</th>
+    </thead>
+    <tr *ngFor="let mascota of lista">
+      <td>{{mascota.tipo}}</td>
+      <td>{{mascota.raza}}</td>
+      <td>{{mascota.nombre}}</td>
+      <td>{{mascota.edad}}</td>
+      
+      <!--<td><img [src]="imagenes([mascota.foto]) || async"/></td>-->
+      <td><input type="button" value="Modificar" (click)="llenarInputs(mascota)"></td>
+      
+    </tr>
+
+  </table>
+
+  
+<br><br>

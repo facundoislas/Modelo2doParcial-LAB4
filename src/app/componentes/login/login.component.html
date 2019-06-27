@@ -1,0 +1,16 @@
+<h1>Login</h1>
+<div>
+
+  <form [formGroup]="registroForm">
+    <div>
+    <label>Ingrese email </label>
+    <input type="text" placeholder="mail" name="email" [formControl]="email" [(ngModel)] = "unUsuario.email">
+  </div>
+  <br>
+  <div>
+    <label>Ingrese Clave </label>
+    <input type="password" placeholder="contraseña" name="contraseña" [formControl]="clave" [(ngModel)] = "unUsuario.clave">
+  </div>
+  <input type="button" value="Ingresar" [disabled]="!registroForm.valid" (click)="login()">
+  </form>
+</div>

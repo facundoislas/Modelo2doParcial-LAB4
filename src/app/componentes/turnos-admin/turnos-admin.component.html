@@ -1,0 +1,20 @@
+<app-header-email></app-header-email>
+
+<h1>Listado de turnos</h1>
+
+<br><br>
+<table border="1">
+
+  <thead>
+    <th>Usuario</th>
+    <th>fecha turno</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let turno of lista">
+      <td>{{turno.usuario}}</td>
+      <td>{{turno.fecha}}</td>
+
+    </tr>
+  </tbody>
+
+</table>
